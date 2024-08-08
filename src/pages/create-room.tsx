@@ -6,7 +6,11 @@ import { useNavigate } from "react-router-dom";
 export function CreateRoom() {
   const navigate = useNavigate();
 
-  function handleCreateRoom() {
+  function handleCreateRoom(data: FormData) {
+    const theme = data.get("theme")?.toString();
+
+    console.log(theme);
+
     navigate("/room/asdasd123123");
   }
 
@@ -21,7 +25,7 @@ export function CreateRoom() {
         </p>
 
         <form
-          onSubmit={handleCreateRoom}
+          action={handleCreateRoom}
           className="flex items-center gap-2 bg-zinc-900 p-2 rounded-xl border border-zinc-800 ring-orange-400 ring-offset-2 ring-offset-zinc-950 focus-within:ring-1"
         >
           <input
